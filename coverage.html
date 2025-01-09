@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">TodoMVC Angular documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">TodoMVC Angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -167,7 +169,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#appConfig">src/app/app.config.ts</a>
+                        <a href="./miscellaneous/variables.html#appConfig">src/app/app.config.ts</a>
             </td>
             <td>variable</td>
             <td>appConfig</td>
@@ -263,7 +265,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#LogClass">src/app/shared/decorators/log.decorator.ts</a>
+                        <a href="./miscellaneous/functions.html#LogClass">src/app/shared/decorators/log.decorator.ts</a>
             </td>
             <td>function</td>
             <td>LogClass</td>
@@ -275,7 +277,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#LogMethod">src/app/shared/decorators/log.decorator.ts</a>
+                        <a href="./miscellaneous/functions.html#LogMethod">src/app/shared/decorators/log.decorator.ts</a>
             </td>
             <td>function</td>
             <td>LogMethod</td>
@@ -287,7 +289,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#LogProperty">src/app/shared/decorators/log.decorator.ts</a>
+                        <a href="./miscellaneous/functions.html#LogProperty">src/app/shared/decorators/log.decorator.ts</a>
             </td>
             <td>function</td>
             <td>LogProperty</td>
@@ -299,7 +301,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#LogPropertyWithArgs">src/app/shared/decorators/log.decorator.ts</a>
+                        <a href="./miscellaneous/functions.html#LogPropertyWithArgs">src/app/shared/decorators/log.decorator.ts</a>
             </td>
             <td>function</td>
             <td>LogPropertyWithArgs</td>
@@ -428,6 +430,54 @@
                 <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Flags">src/app/shared/miscellaneous/miscellaneous-types.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Flags</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Name">src/app/shared/miscellaneous/miscellaneous-types.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Name</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#NameResolver">src/app/shared/miscellaneous/miscellaneous-types.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>NameResolver</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Something">src/app/shared/miscellaneous/miscellaneous-types.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Something</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
@@ -455,7 +505,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#foo">src/app/shared/miscellaneous/miscellaneous.ts</a>
+                        <a href="./miscellaneous/functions.html#foo">src/app/shared/miscellaneous/miscellaneous.ts</a>
             </td>
             <td>function</td>
             <td>foo</td>
@@ -467,7 +517,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#PI">src/app/shared/miscellaneous/miscellaneous.ts</a>
+                        <a href="./miscellaneous/variables.html#PI">src/app/shared/miscellaneous/miscellaneous.ts</a>
             </td>
             <td>variable</td>
             <td>PI</td>
@@ -479,7 +529,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#PIT">src/app/shared/miscellaneous/miscellaneous.ts</a>
+                        <a href="./miscellaneous/variables.html#PIT">src/app/shared/miscellaneous/miscellaneous.ts</a>
             </td>
             <td>variable</td>
             <td>PIT</td>
@@ -491,7 +541,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#yo">src/app/shared/miscellaneous/miscellaneous.ts</a>
+                        <a href="./miscellaneous/variables.html#yo">src/app/shared/miscellaneous/miscellaneous.ts</a>
             </td>
             <td>variable</td>
             <td>yo</td>
@@ -635,7 +685,6 @@
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 
