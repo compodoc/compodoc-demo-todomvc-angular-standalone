@@ -19,20 +19,34 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 </li>
 
                 <li class="divider"></li>
-                ${ isNormalMode ? `<div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>` : '' }
+                ${ isNormalMode ? `<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+` : '' }
                 <li class="chapter">
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
                     <ul class="links">
-                        <li class="link">
-                            <a href="overview.html" data-type="chapter-link">
-                                <span class="icon ion-ios-keypad"></span>Overview
-                            </a>
-                        </li>
-                        <li class="link">
-                            <a href="index.html" data-type="chapter-link">
-                                <span class="icon ion-ios-paper"></span>README
-                            </a>
-                        </li>
+                                <li class="link">
+                                    <a href="overview.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-keypad"></span>Overview
+                                    </a>
+                                </li>
+
+                            <li class="link">
+                                <a href="index.html" data-type="chapter-link">
+                                    <span class="icon ion-ios-paper"></span>
+                                        README
+                                </a>
+                            </li>
+                                <li class="link">
+                                    <a href="architecture.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-git-branch"></span>Architecture
+                                    </a>
+                                </li>
                                 <li class="link">
                                     <a href="dependencies.html" data-type="chapter-link">
                                         <span class="icon ion-ios-list"></span>Dependencies
@@ -43,6 +57,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <span class="icon ion-ios-apps"></span>Properties
                                     </a>
                                 </li>
+
                     </ul>
                 </li>
                     <li class="chapter additional">
@@ -149,7 +164,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/StringIndexedItems.html" data-type="entity-link" >StringIndexedItems</a>
+                                <a href="classes/StringIndexedItems.html" data-type="entity-link" >StringIndexedItems&lt;T&gt;</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Todo.html" data-type="entity-link" >Todo</a>
@@ -213,7 +228,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ClockInterface.html" data-type="entity-link" >ClockInterface</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/InterfaceWithIndexable.html" data-type="entity-link" >InterfaceWithIndexable</a>
+                                <a href="interfaces/InterfaceWithIndexable.html" data-type="entity-link" >InterfaceWithIndexable&lt;T&gt;</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/LabelledTodo.html" data-type="entity-link" class="deprecated-name">LabelledTodo</a>
@@ -235,7 +250,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <li class="chapter">
                             <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#pipes-links"' :
                                 'data-bs-target="#xs-pipes-links"' }>
-                                <span class="icon ion-md-add"></span>
+                                <span class="icon ion-md-funnel"></span>
                                 <span>Pipes</span>
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
@@ -270,6 +285,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
+                        </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>

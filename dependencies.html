@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -70,7 +84,14 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -96,37 +117,77 @@
 
 
 
+
+
+
+
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Dependencies</li>
     </ol>
-    <ul class="dependencies-list">
-        <li>
-            <b>@angular/animations</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/common</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/compiler</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/core</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/forms</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/platform-browser</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/platform-browser-dynamic</b> : ^19.0.0</li>
-        <li>
-            <b>@angular/router</b> : ^19.0.0</li>
-        <li>
-            <b>rxjs</b> : ~7.8.1</li>
-        <li>
-            <b>todomvc-app-css</b> : ^2.4.3</li>
-        <li>
-            <b>todomvc-common</b> : ^1.0.5</li>
-        <li>
-            <b>tslib</b> : ^2.6.2</li>
-        <li>
-            <b>zone.js</b> : ~0.15.0</li>
-    </ul>
+    <div class="dependencies-table-wrapper">
+        <table class="table table-sm table-bordered dependencies-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Version</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>@angular/animations</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/common</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/compiler</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/core</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/forms</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/platform-browser</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/platform-browser-dynamic</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>@angular/router</b></td>
+                    <td>^22.0.4</td>
+                </tr>
+                <tr>
+                    <td><b>rxjs</b></td>
+                    <td>~7.8.2</td>
+                </tr>
+                <tr>
+                    <td><b>todomvc-app-css</b></td>
+                    <td>^2.4.3</td>
+                </tr>
+                <tr>
+                    <td><b>todomvc-common</b></td>
+                    <td>^1.0.5</td>
+                </tr>
+                <tr>
+                    <td><b>tslib</b></td>
+                    <td>^2.8.1</td>
+                </tr>
+                <tr>
+                    <td><b>zone.js</b></td>
+                    <td>~0.16.2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
 
@@ -166,6 +227,24 @@
 
        <script>
                $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
                checkToggle(darkModeState);
                if ($darkModeToggleSwitchers.length > 0) {
                     for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
@@ -181,7 +260,6 @@
        <script src="./js/libs/lit-html.js"></script>
 
        <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
